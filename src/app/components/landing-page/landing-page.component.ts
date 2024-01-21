@@ -9,7 +9,7 @@ import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
       state('void', style({ opacity: 0 })), // Initial state
       state('*', style({ opacity: 1 })), // Final state
       transition(':enter', [
-        animate('4s ease-in') // Animation for entering elements
+        animate('5s ease-in') // Animation for entering elements
       ]),
       transition(':leave', [
         animate('0.3s ease-out') // Animation for leaving elements
