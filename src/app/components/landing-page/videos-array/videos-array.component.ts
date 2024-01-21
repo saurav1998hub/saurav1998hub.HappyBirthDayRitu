@@ -24,18 +24,19 @@ export class VideosArrayComponent {
 
   ngAfterViewInit() {
     const videoContainer = this.videoContainerRef.nativeElement;
-  
-    this.scrollInterval = setInterval(() => {
-      const scrollDistance = videoContainer.scrollHeight / this.videos.length;
-      videoContainer.scrollBy({ top: scrollDistance, behavior: 'smooth' });
-  
-      if (videoContainer.scrollTop -0.5 === videoContainer.scrollHeight - videoContainer.clientHeight) {
-        videoContainer.scrollTo({ top: 0, behavior: 'smooth' });
-      }
-      else if (videoContainer.scrollTop +0.5 === videoContainer.scrollHeight - videoContainer.clientHeight) {
-        videoContainer.scrollTo({ top: 0, behavior: 'smooth' });
-      }
-    }, 4000); // Adjust interval speed for scrolling speed
+    setTimeout(() => {
+      // Code to execute after the delay
+      this.scrollInterval = setInterval(() => {
+        const scrollDistance = videoContainer.scrollHeight / this.videos.length;
+        videoContainer.scrollBy({ top: scrollDistance, behavior: 'smooth' });
+        let difference = videoContainer.scrollTop - videoContainer.scrollHeight + videoContainer.clientHeight;
+        if (difference>=0 && difference<=2) {
+          videoContainer.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+        
+      }, 4000);
+    }, 2000);
+     // Adjust interval speed for scrolling speed
   }
   
   ngOnDestroy() {
