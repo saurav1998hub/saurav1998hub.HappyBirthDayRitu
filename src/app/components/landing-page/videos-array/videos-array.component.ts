@@ -28,10 +28,10 @@ export class VideosArrayComponent {
       const scrollDistance = 400;
       videoContainer.scrollBy({ top: scrollDistance, behavior: 'smooth' });
   
-      if (videoContainer.scrollTop === videoContainer.scrollHeight - videoContainer.clientHeight) {
+      if (videoContainer.scrollTop -0.5 === videoContainer.scrollHeight - videoContainer.clientHeight) {
         videoContainer.scrollTo({ top: 0, behavior: 'smooth' });
       }
-    }, 3000); // Adjust interval speed for scrolling speed
+    }, 4000); // Adjust interval speed for scrolling speed
   }
   
   ngOnDestroy() {
