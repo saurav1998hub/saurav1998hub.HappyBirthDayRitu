@@ -7,12 +7,6 @@
   align-items: center;
 }
 
-:host {
-  display: flex;
-  overflow-x: auto;
-  gap: 16px; /* Adjust spacing between videos */
-}
-
 .box{
   height:32rem;
   border-radius: 2rem;
@@ -20,7 +14,7 @@
 
 .video {
   height: 100%;
-  width: 100%;
+  width: 70%;
   max-width: 400px; /* Adjust maximum width as needed */
   overflow: scroll;
   border-radius: 2rem; /* Add border-radius for rounded corners */

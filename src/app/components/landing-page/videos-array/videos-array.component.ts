@@ -27,10 +27,10 @@ export class VideosArrayComponent {
     setTimeout(() => {
       // Code to execute after the delay
       this.scrollInterval = setInterval(() => {
-        const scrollDistance = videoContainer.scrollHeight / this.videos.length;
+        const scrollDistance = 600;
         videoContainer.scrollBy({ top: scrollDistance, behavior: 'smooth' });
         let difference = videoContainer.scrollTop - videoContainer.scrollHeight + videoContainer.clientHeight;
-        if (difference>=0 && difference<=2) {
+        if (difference>=-2 && difference<=2) {
           videoContainer.scrollTo({ top: 0, behavior: 'smooth' });
         }
         
