@@ -27,7 +27,7 @@ h1 {
   right: 0;
   bottom: 0;
   overflow: hidden;
-  background-image: url("https://res.cloudinary.com/dh6vgmxmf/image/upload/v1705824824/background_vertical_ljoug0.jpg");
+  background-image: url("../../../assets/images/Horizontal.webp");
   background-attachment: fixed;
   background-position: center center;
   background-repeat: no-repeat;
@@ -45,7 +45,7 @@ h1 {
 }
 @media screen and (max-width: 1080px) {
   .main {
-      background-image: url("https://res.cloudinary.com/dh6vgmxmf/image/upload/v1705824825/background_horizontal_noazsm.jpg");
+      background-image: url("../../../assets/images/Vertical.webp");
   }
 
   h1 {
