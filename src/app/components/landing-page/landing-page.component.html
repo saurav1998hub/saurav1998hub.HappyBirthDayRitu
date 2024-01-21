@@ -2,11 +2,12 @@
     <app-button class="w-72 self-center" (open)="start($event)"></app-button>
     <object class="p-12 self-center" data="../../../assets/images/Birthday Cake Icon.svg" width="300" height="300"> </object>
 </div>
-<div *ngIf="buttonClicked" class="main flex justify-center">
+<div *ngIf="buttonClicked" class="main flex-col flex justify-between">
+    <h1>Happy 24th Birthday Pucchu<span>❤</span></h1>
     <div class="pyro">
         <div class="before"></div>
         <div class="after"></div>
     </div>
-    <h1>Happy 24th Birthday Pucchu<span>❤</span></h1>
+    <app-videos-array class="absolute top-2/4 self-center w-10/12 justify-center"></app-videos-array>
 </div>
 <audio #audioElement src="../../../assets/images/iraaday.mp3" loop></audio>

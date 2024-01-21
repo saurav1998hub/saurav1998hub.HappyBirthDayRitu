@@ -10,12 +10,12 @@ h1 {
   text-align: center;
   animation: blink 12s infinite;
   -webkit-animation: blink 12s infinite;
-  height: 200px;
+  height: 35rem;
   padding-top: 5rem;
 }
 
 .pyro {
-  align-self: center;
+  position: relative;
 }
 
 .main { 
@@ -57,7 +57,8 @@ h1 {
 
 .pyro>.before,
 .pyro>.after {
-  position: absolute;
+  position: relative;
+  margin-bottom: 50%;
   width: 5px;
   height: 5px;
   border-radius: 50%;
