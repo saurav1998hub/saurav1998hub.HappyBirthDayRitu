@@ -6,7 +6,7 @@ import { Component, ViewChild, ElementRef, HostListener } from '@angular/core';
   styleUrls: ['./videos-array.component.scss'],
 })
 export class VideosArrayComponent {
-  videos = [ 
+  videos = [
 
 
     { src: './../../assets/videos/3.mov' },
@@ -14,53 +14,56 @@ export class VideosArrayComponent {
     { src: './../../assets/videos/5.mov' },
     { src: './../../assets/videos/6.mov' },
     { src: './../../assets/videos/1.mov' },
-    //{ src: './../../assets/videos/2.mov' },
-    // ...
+    { src: './../../assets/videos/7.mov' },
+    { src: './../../assets/videos/8.mov' },
+    { src: './../../assets/videos/9.mov' },
+    { src: './../../assets/videos/10.mov' },
+    { src: './../../assets/videos/11.mov' },
+    { src: './../../assets/videos/12.mov' },
   ];
 
-  @ViewChild('videoContainer')
+  @ViewChild('videoContainer') 
   videoContainerRef!: ElementRef;
-  scrollInterval: any;
-  isMobile: boolean = false;
-
+  private scrollInterval: any;
+  private isMobile: boolean = false;
+  
   ngAfterViewInit() {
-    this.checkIfMobile(); // Check if the initial load is on a mobile device
-    this.setupAutoScroll();
+    this.setupAutoScroll(); // Call directly for efficiency
   }
 
   @HostListener('window:resize', ['$event'])
   onResize(event: Event) {
-    this.checkIfMobile();
+    this.updateScrollBehavior(); // Combine logic for clarity
   }
 
-  private checkIfMobile() {
-    this.isMobile = window.innerWidth <= 768; // Adjust the threshold as needed
+  private updateScrollBehavior() {
+    this.isMobile = window.innerWidth <= 768;
+    if (this.scrollInterval) {
+      clearInterval(this.scrollInterval);
+      this.setupAutoScroll(); // Reinitialize with updated behavior
+    }
   }
 
   private setupAutoScroll() {
     const videoContainer = this.videoContainerRef.nativeElement;
-    setTimeout(() => {
-      // Code to execute after the delay
-      this.scrollInterval = setInterval(() => {
-        const scrollDistance = 600;
-        if (!this.isMobile) {
-          videoContainer.scrollBy({ top: scrollDistance, behavior: 'smooth' });
-          let difference = videoContainer.scrollTop - videoContainer.scrollHeight + videoContainer.clientHeight;
-          if (difference >= -2 && difference <= 2) {
-            videoContainer.scrollTo({ top: 0, behavior: 'smooth' });
-          }
-        } else {
-          videoContainer.scrollTo({ top: videoContainer.scrollTop + scrollDistance, behavior: 'smooth' });
-          
-          // Check if reached the bottom on mobile and scroll to top
-          if (videoContainer.scrollTop + videoContainer.clientHeight >= videoContainer.scrollHeight) {
-            videoContainer.scrollTo({ top: 0, behavior: 'smooth' });
-          }
+    this.scrollInterval = setInterval(() => {
+      const scrollDistance = 550;
+      if (!this.isMobile) {
+        videoContainer.scrollBy({ top: scrollDistance, behavior: 'smooth' });
+
+        // Optimized boundary check:
+        if (videoContainer.scrollTop + videoContainer.clientHeight >= videoContainer.scrollHeight - 2) {
+          videoContainer.scrollTo({ top: 0, behavior: 'smooth' });
         }
-      
-      }, 4000);
-    }, 2000);
-    // Adjust interval speed for scrolling speed
+      } else {
+        videoContainer.scrollTo({ top: videoContainer.scrollTop + scrollDistance, behavior: 'smooth' });
+
+        // Scroll to top on mobile only when necessary:
+        if (videoContainer.scrollTop + videoContainer.clientHeight >= videoContainer.scrollHeight) {
+          videoContainer.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+      }
+    }, 4000); // Adjust interval speed as needed
   }
 
   ngOnDestroy() {
