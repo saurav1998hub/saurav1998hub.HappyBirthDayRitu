@@ -11,7 +11,7 @@ export class LandingPageComponent{
 
   buttonClicked:boolean = false;
 
-  start(){
+  start(e:Event){
     this.buttonClicked  = true;
     console.log("start");
     const audio = this.audioElement.nativeElement as HTMLAudioElement;
