@@ -19,7 +19,7 @@ h1 {
 }
 
 .main {
-  background-image: url("background_horizontal.jpg");
+  background-image: url("../../../assets/images/background_horizontal.jpg");
   height: 100vh !important;
   background-position: center;
   background-repeat: no-repeat;
@@ -27,14 +27,21 @@ h1 {
   padding: 0;
   margin:0;
 }
-
+.box{
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 20px;
+  height: 20px;
+  margin-left: -10px;
+}
 @media screen and (max-width: 1080px) {
   .main {
-      background-image: url("background_vertical.jpg");
+      background-image: url("../../../assets/images/background_vertical.jpg");
   }
 
   h1 {
-      padding-top: 3rem;
+      padding-top: 2rem;
       font-size: 4rem;
   }
 }

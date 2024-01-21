@@ -1,16 +1,15 @@
-<div class="main flex justify-center">
-    <div *ngIf="buttonClicked">
-        <div class="pyro">
-            <div class="before"></div>
-            <div class="after"></div>
-        </div>
-        <h1>Happy 24th Birthday Pucchu<span>❤</span></h1>
-    </div>
-    <div *ngIf="!buttonClicked">
-        <button type="button"
-        class="self-center h-1 text-white bg-gradient-to-r from-blue-500 via-blue-600 to-blue-700 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800 shadow-lg shadow-blue-500/50 dark:shadow-lg dark:shadow-blue-800/80 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2 "
-        (click)="start()">Click Here</button>
-    </div>
-    
+<div *ngIf="!buttonClicked" class="box flex flex-col justify-center">
+    <button type="button" (click)="start()"
+        class="self-center h-10 w-60 inline-block rounded bg-neutral-800 px-6 pb-2 pt-2.5 text-xs font-medium uppercase leading-normal text-neutral-50 shadow-[0_4px_9px_-4px_rgba(51,45,45,0.7)] transition duration-150 ease-in-out hover:bg-neutral-800 hover:shadow-[0_8px_9px_-4px_rgba(51,45,45,0.2),0_4px_18px_0_rgba(51,45,45,0.1)] focus:bg-neutral-800 focus:shadow-[0_8px_9px_-4px_rgba(51,45,45,0.2),0_4px_18px_0_rgba(51,45,45,0.1)] focus:outline-none focus:ring-0 active:bg-neutral-900 active:shadow-[0_8px_9px_-4px_rgba(51,45,45,0.2),0_4px_18px_0_rgba(51,45,45,0.1)] dark:bg-neutral-900 dark:shadow-[0_4px_9px_-4px_#030202] dark:hover:bg-neutral-900 dark:hover:shadow-[0_8px_9px_-4px_rgba(3,2,2,0.3),0_4px_18px_0_rgba(3,2,2,0.2)] dark:focus:bg-neutral-900 dark:focus:shadow-[0_8px_9px_-4px_rgba(3,2,2,0.3),0_4px_18px_0_rgba(3,2,2,0.2)] dark:active:bg-neutral-900 dark:active:shadow-[0_8px_9px_-4px_rgba(3,2,2,0.3),0_4px_18px_0_rgba(3,2,2,0.2)]">
+        Click Here to Blow Candle!
+    </button>
+    <object class="p-12 self-center" data="../../../assets/images/Birthday Cake Icon.svg" width="300" height="300"> </object>
 </div>
-<audio #audioElement src="iraaday.mp3"></audio>
+<div *ngIf="buttonClicked" class="main flex justify-center">
+    <div class="pyro">
+        <div class="before"></div>
+        <div class="after"></div>
+    </div>
+    <h1>Happy 24th Birthday Pucchu<span>❤</span></h1>
+</div>
+<audio #audioElement src="../../../assets/images/iraaday.mp3"></audio>
